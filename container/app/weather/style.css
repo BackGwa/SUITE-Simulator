@@ -1,0 +1,117 @@
+html,
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+app-area {
+    position: absolute;
+    width: 1280px;
+    height: 480px;
+    background: linear-gradient(108deg, #5a89ff 28.67%, #3667E3 93.4%);
+}
+
+location-text {
+    position: absolute;
+    color: #FFF;
+    text-align: left;
+    font-size: 32px;
+    font-weight: 500;
+    margin-left: 78px;
+    margin-top: 72px;
+    z-index: 1;
+}
+
+temp-text {
+    position: absolute;
+    color: #FFF;
+    text-align: left;
+    font-size: 128px;
+    font-weight: 600;
+    margin-left: 75px;
+    margin-top: 91px;
+    z-index: 1;
+}
+
+help-text {
+    position: absolute;
+    color: #FFF;
+    text-align: left;
+    font-size: 24px;
+    font-weight: 400;
+    margin-left: 75px;
+    z-index: 1;
+    margin-top: 255px;
+}
+
+min-temp-text {
+    position: absolute;
+    color: #FFF;
+    text-align: left;
+    font-size: 24px;
+    font-weight: 400;
+    margin-left: 75px;
+    z-index: 1;
+    margin-top: 403px;
+}
+
+
+max-temp-text {
+    position: absolute;
+    color: #FFF;
+    text-align: left;
+    font-size: 24px;
+    font-weight: 400;
+    margin-left: 280px;
+    margin-top: 403px;
+    z-index: 1;
+}
+
+loading-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-weight: 600;
+    z-index: 1;
+    font-size: 42px;
+}
+
+exit-button {
+    background: rgba(255, 255, 255, 0.5);
+    width: 74px;
+    height: 74px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    filter: drop-shadow(4px 4px 32px #0000001a);
+    margin-bottom: 24px;
+    margin-right: 24px;
+    z-index: 1;
+}
+
+exit-button img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 27px;
+    height: 27px;
+    z-index: 1;
+}
+
+temp-font {
+    font-family: 'SUITE Variable';
+    z-index: 1;
+}
+
+.cloudimg {
+    position: absolute;
+    right: -450px;
+    bottom: -350px;
+    width: 1200px;
+    opacity: 0.25;
+    z-index: 0;
+}

@@ -1,0 +1,167 @@
+
+:root {
+    --keyboard-background: #19191E;
+    --keyboard-drop-shadow: #000000BF;
+
+    --keyboard-key: #101015;
+    --keyboard-key-function: #101017;
+    --keyboard-key-highlight: #fdde59;
+    --keyboard-key-drop-shadow: #ffffff0A;
+
+    --keyboard-text-hightlight: #19191E;
+    --keyboard-text-function: #e9e9e9e2;
+
+    --movebar-color: #c8c8c830;
+}
+
+.loweyes-enable {
+    --keyboard-background: #000000;
+    --keyboard-drop-shadow: #00000000;
+    --keyboard-key: #ffff00;
+    --keyboard-key-function: #ffffff;
+    --keyboard-key-highlight: #00ffff;
+
+    --keyboard-key-drop-shadow: #ffffff00;
+    --movebar-color: #ffffff;
+}
+
+body {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+keyboard-layout {
+    width : calc(100% - 8px);
+    height: calc(100% - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#keyboardzone {
+    position: absolute;
+    width: 550px;
+    height: 320px;
+    padding: 18px 4px 18px 4px;
+    background: var(--keyboard-background);
+    filter: drop-shadow(6px 6px 36px var(--keyboard-drop-shadow));
+    border: 3px solid #53535320;
+    border-radius: 24px;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+.loweyes-enable #keyboardzone {
+    border: 3px solid #ffffff;
+}
+
+table {
+    width: 100%;
+    height: 57px;
+    display: flex;
+    justify-content: center;
+}
+
+th {
+    width: 42px;
+    color: #FFF;
+    background: var(--keyboard-key);
+    filter: drop-shadow(1px 1px 2px var(--keyboard-key-drop-shadow));
+    border-radius: 12px;
+    font-size: 1.6rem;
+    margin: 0 3px 0 3px;
+}
+
+.loweyes-enable th {
+    color: #000000;
+}
+
+keyboard-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.disable {
+    position: absolute;
+    visibility: hidden;
+}
+
+.highlight,
+.function {
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.highlight {
+    width: 65px;
+    background: var(--keyboard-key-highlight);
+    color: var(--keyboard-text-hightlight);
+}
+
+.function {
+    width: 65px;
+    background: var(--keyboard-key-function);
+    color: var(--keyboard-text-function);
+}
+
+.spacebar {
+    width: 340px;
+}
+
+.long-width {
+    width: 62px;
+}
+
+keyboard-move {
+    position: absolute;
+    width: 100%;
+    height: 52px;
+    bottom: 0;
+}
+
+keyboard-movebar {
+    position: absolute;
+    background: var(--movebar-color);
+    width: 10%;
+    height: 8px;
+    border-radius: 8px;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.selected {
+    opacity: 0.5;
+}
+
+keyboard-close {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-image: url(./res/button.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.7;
+    margin-right: 36px;
+    margin-bottom: 16px;
+    right: 0;
+    bottom: 0;
+}
+
+.keyboard-close-animation {
+    transition: 0.25s ease-in;
+}
+
+.close-animation {
+    transform: scale(25%);
+    opacity: 0.0;
+}
+
+.hidden {
+    display: none;
+}
+

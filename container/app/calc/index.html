@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="user-scalable=no width=device-width, initial-scale=1.0">
+  <title>Calc</title>
+
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="../../../fonts/style.css">
+</head>
+
+<body>
+  <app-area>
+    <input type="text" id="display" readonly>
+    <button-area>
+      <button-layer>
+        <button onclick="clearDisplay()" class="function-btn">AC</button>
+        <button onclick="pm_change()" class="function-btn">±</button>
+        <button onclick="appendToDisplay('%')" class="function-btn">%</button>
+        <button onclick="appendToDisplay('/')" class="calc-btn">÷</button>
+      </button-layer>
+      <button-layer>
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('9')">9</button>
+        <button onclick="appendToDisplay('*')" class="calc-btn">×</button>
+      </button-layer>
+      <button-layer>
+        <button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('6')">6</button>
+        <button onclick="appendToDisplay('-')" class="calc-btn">-</button>
+      </button-layer>
+      <button-layer>
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('3')">3</button>
+        <button onclick="appendToDisplay('+')" class="calc-btn">+</button>
+      </button-layer>
+
+      <button-layer>
+        <button onclick="appendToDisplay('0')">0</button>
+        <button onclick="appendToDisplay('.')">.</button>
+        <button onclick="remove_oneword()">CE</button>
+        <button onclick="calculateResult()" class="calc-btn">=</button>
+      </button-layer>
+    </button-area>
+    
+    <history-area>
+    </history-area>
+
+    <exit-button onclick="back_site()">
+      <exit-label>×</exit-label>
+    </exit-button>
+</div>
+  </app-area>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>

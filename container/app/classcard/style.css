@@ -1,0 +1,69 @@
+html,
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+app-area {
+    position: absolute;
+    width: 1280px;
+    height: 480px;
+    background: #ffffff;
+}
+
+iframe {
+    position: absolute;
+    width: 91%;
+    height: 100%;
+    border: 0;
+    z-index: 0;
+}
+
+control-area {
+    position: absolute;
+    width: 9%;
+    background: #fff;
+    height: calc(100% - 8px);
+    right: 0;
+    border-top-left-radius: 42px;
+    border-bottom-left-radius: 42px;
+    border-left: 4px solid #0000001f;
+    border-top: 4px solid #0000001f;
+    border-bottom: 4px solid #0000001f;
+    filter: drop-shadow(0 0 32px #00000030);
+    -webkit-filter: drop-shadow(0 0 32px #00000030);
+    z-index: 1;
+}
+
+home-button,
+exit-button {
+    position: absolute;
+    width: 82px;
+    height: 82px;
+    border-radius: 50%;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+home-button {
+    background: #7DD727;
+    margin-bottom: 108px;
+}
+
+exit-button {
+    width: 74px;
+    height: 74px;
+    border: 4px solid #7DD727;
+    margin-bottom: 12px;
+}
+
+home-button img ,
+exit-button img {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

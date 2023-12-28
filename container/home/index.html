@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no width=1280px, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="../../fonts/style.css">
+</head>
+
+<body>
+    <home-area>
+        <dock-widget>
+            <dock-item class="left-item">
+                <app-list>
+                    <apps class="icon-classcard" onclick="app_boot(`classcard`, `icon-classcard`)">
+                    </apps>
+                    <apps class="icon-schoolbell" onclick="app_boot(`schoolbell`, `icon-schoolbell`)"></apps>
+                    <apps class="icon-meal" onclick="app_boot(`meal`, `icon-meal`)"></apps>
+                    <apps class="icon-weather" onclick="app_boot(`weather`, `icon-weather`)"></apps>
+                    <apps class="icon-calc" onclick="app_boot(`calc`, `icon-calc`)"></apps>
+                    <apps class="icon-clock" onclick="app_boot(`clock`, `icon-clock`)"></apps>
+                    <apps class="icon-notepad" onclick="app_boot(`notepad`, `icon-notepad`)"></apps>
+                </app-list>
+            </dock-item>
+            <dock-item class="right-item" onclick="goto_aod()">
+                <time-background>
+                    <time-text></time-text>
+                    <day-text></day-text>
+                    <dayx-text></dayx-text>
+                </time-background>
+            </dock-item>
+        </dock-widget>
+    </home-area>
+    <loading-effect class="loading-hidden">
+        <loading-icon></loading-icon>
+        <loading-animate>
+            <loading-bar></loading-bar>
+        </loading-animate>
+    </loading-effect>
+    <iframe src="" id="loader-frame"></iframe>
+    <script src="./script.js"></script>
+</body>
+
+</html>

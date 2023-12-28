@@ -1,0 +1,253 @@
+
+html,
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+home-area {
+    position: absolute;
+    width: 1280px;
+    height: 480px;
+    background-image: url(./res/background.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+dock-widget {
+    position: absolute;
+    width: calc(100% - 24px);
+    height: 90px;
+    margin-left: 12px;
+    margin-right: 12px;
+    bottom: 0;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-around;
+}
+
+dock-item {
+    height: 100%;
+    border-radius: 28px;
+    background: #2f2f2f98;
+    border: 2px solid #f3f3f31A;
+    margin-left: 12px;
+    margin-right: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+}
+
+.left-item {
+    width: calc(100% - 24px);
+}
+
+.right-item {
+    width: calc(30% - 24px);
+    overflow: hidden;
+}
+
+app-list {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+apps {
+    margin-top: 5px;
+    width: 80px;
+    height: 80px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 2px;
+    margin-right: 2px;
+    filter: drop-shadow(4px 4px 16px #00000026);
+    transition: 0.22s ease-in-out;
+}
+
+.icon-ai {
+    background-image: url(../app/icon_res/SUITE_AI.png);
+}
+
+.icon-clock {
+    background-image: url(../app/icon_res/clock.png);
+}
+
+.icon-notepad {
+    background-image: url(../app/icon_res/notepad.png);
+}
+
+.icon-meal {
+    background-image: url(../app/icon_res/meal.png);
+}
+
+.icon-calc {
+    background-image: url(../app/icon_res/calc.png);
+}
+
+.icon-setting {
+    background-image: url(../app/icon_res/setting.png);
+}
+
+.icon-weather {
+    background-image: url(../app/icon_res/weather.png);
+}
+
+.icon-youtube {
+    background-image: url(../app/icon_res/youtube.png);
+}
+
+.icon-schoolbell {
+    background-image: url(../app/icon_res/schoolbell.png);
+}
+
+.icon-classcard {
+    background-image: url(../app/icon_res/classcard.png);
+}
+
+.icon-health {
+    background-image: url(../app/icon_res/health.png);
+}
+
+iframe {
+    border: 0px;
+    user-select: none;
+    user-zoom: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+}
+
+#loader-frame {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.0;
+    pointer-events: none;
+    transition: 0.15s ease-in;
+    transform: translateY(100%) scale(50%);
+}
+
+loading-effect {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000000A0;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    opacity: 1.0;
+    transition: 0.3s ease-in-out;
+}
+
+loading-icon {
+    position: absolute;
+    width: 215px;
+    height: 215px;
+    border-radius: 12px;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: drop-shadow(0 0 36px #000000A0);
+    -webkit-filter: drop-shadow(0 0 36px #000000A0);
+}
+
+loading-animate {
+    width: 400px;
+    height: 17px;
+    position: absolute;
+    top: 76%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #d0d0d03d;
+    border-radius: 8px;
+    filter: drop-shadow(0 0 24px #000000F0);
+    -webkit-filter: drop-shadow(0 0 24px #000000F0);
+    overflow: hidden;
+}
+
+loading-bar {
+    position: absolute;
+    width: 200px;
+    height: 17px;
+    background: #f5f5f5EF;
+    border-radius: 8px;
+    filter: drop-shadow(0 0 12px #ffffffa0);
+    -webkit-filter: drop-shadow(0 0 12px #ffffffa0);
+    animation: loading-animate-frames 0.75s ease-in-out infinite;
+}
+
+@keyframes loading-animate-frames {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(200%);
+    }
+}
+
+.loading-hidden {
+    opacity: 0;
+    pointer-events: none;
+    filter: blur(48px);
+    -webkit-filter: blur(48px);
+    transform: translateY(100%) scale(0%);
+}
+
+time-background {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    margin-left: -4px;
+    width: 160px;
+    height: 105%;
+    background: linear-gradient(0.25turn, #5485eea8, #8258de00);
+    transition: 0.3s ease-in;
+}
+
+time-text {
+    position: absolute;
+    top: 52%;
+    transform: translateY(-50%);
+    color: #ffffff;
+    font-size: 32px;
+    opacity: 0.9;
+    text-align: center;
+    margin-left: 24px;
+    transition: 0.3s ease-in;
+}
+
+day-text {
+    width: 100%;
+    position: absolute;
+    color: #eaeaea97;
+    font-size: 18px;
+    font-weight: 400;
+    top: 42%;
+    transform: translateY(-50%);
+    right: 0;
+    margin-right: -145px;
+    transition: 0.3s ease-in;
+}
+
+dayx-text {
+    position: absolute;
+    color: #eaeaea67;
+    font-size: 18px;
+    font-weight: 400;
+    top: 63%;
+    transform: translateY(-50%);
+    right: 0;
+    margin-right: -87px;
+    transition: 0.3s ease-in;
+}

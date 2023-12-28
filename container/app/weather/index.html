@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="user-scalable=no width=device-width, initial-scale=1.0">
+  <title>Clock</title>
+
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="../../../fonts/style.css">
+</head>
+
+<body>
+  <app-area>
+    <img src="./res/cloud.webp" class="cloudimg">
+    
+    <location-text></location-text>
+    <temp-text></temp-text>
+
+    <help-text></help-text>
+
+    <min-temp-text></min-temp-text>
+    <max-temp-text></max-temp-text>
+    <loading-text>날씨 불러오는 중...</loading-text>
+
+    <exit-button onclick="back_site()">
+        <img src="./res/exit.png">
+    </exit-button>
+  </app-area>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>

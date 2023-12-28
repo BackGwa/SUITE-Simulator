@@ -1,0 +1,68 @@
+
+html,
+body {
+    margin: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+app-area {
+    position: absolute;
+    width: 1280px;
+    height: 480px;
+    pointer-events: none;
+}
+
+stand-up-modal {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(-150%);
+    width: 375px;
+    height: 100px;
+    background: #2f2f2f98;
+    border: 2px solid #f3f3f31A;
+    margin-top: 24px;
+    border-radius: 50px;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    filter: drop-shadow(0 0 36px #000000A0);
+    transition: 0.5s ease-in-out;
+}
+
+.modal-open {
+    transform: translateX(-50%) translateY(0%);
+}
+
+stand-up-icon {
+    position: absolute;
+    width: 54px;
+    height: 54px;
+    background-image: url(./res/Standup.png);
+    background-size: 54px 54px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 30px;
+    filter: drop-shadow(0 0 24px #ffd745A0);
+    -webkit-filter: drop-shadow(0 0 24px #ffd745A0);
+}
+
+stand-up-text {
+    position: absolute;
+    top: 42%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+    margin-left: 100px;
+}
+
+stand-up-textdec {
+    position: absolute;
+    top: 64%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 100px;
+    opacity: 0.75;
+}

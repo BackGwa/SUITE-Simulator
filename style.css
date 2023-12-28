@@ -1,0 +1,77 @@
+
+html,
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+screen-area {
+    position: absolute;
+    width: 1280px;
+    height: 480px;
+    overflow: hidden;
+}
+
+iframe {
+    border: 0;
+    margin: 0;
+    user-select: none;
+    user-zoom: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+}
+
+#aod-frame {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: all;
+    transition: 0.75s ease-in;
+}
+
+#home-frame {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: 0.85s ease-in;
+}
+
+#standup-frame {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+    transition: 0.85s ease-in;
+}
+
+#demo-frame {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+    transition: 0.85s ease-in;
+}
+
+
+.home-deactive {
+    transform: scale(150%);
+    filter: blur(32px);
+    -webkit-filter: blur(32px);
+    pointer-events: none;
+}
+
+.aod-hidden-animate {
+    filter: blur(32px);
+    -webkit-filter: blur(32px);
+    transform: scale(125%);
+    opacity: 0.0;
+    pointer-events: all;
+}
+
+.aod-hidden {
+    display: none;
+    pointer-events: none;
+}

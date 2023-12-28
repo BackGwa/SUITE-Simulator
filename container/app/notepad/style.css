@@ -1,0 +1,150 @@
+@font-face {
+    font-family: 'Fira Code';
+    src: url('./fonts/FiraCode-Light.woff2') format('woff2'),
+        url("./fonts/FiraCode-Light.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fira Code';
+    src: url('./fonts/FiraCode-Regular.woff2') format('woff2'),
+        url("./fonts/FiraCode-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fira Code';
+    src: url('./fonts/FiraCode-Medium.woff2') format('woff2'),
+        url("./fonts/FiraCode-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fira Code';
+    src: url('./fonts/FiraCode-SemiBold.woff2') format('woff2'),
+        url("./fonts/FiraCode-SemiBold.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fira Code';
+    src: url('./fonts/FiraCode-Bold.woff2') format('woff2'),
+        url("./fonts/FiraCode-Bold.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fira Code VF';
+    src: url('./fonts/FiraCode-VF.woff2') format('woff2-variations'),
+        url('./fonts/FiraCode-VF.woff') format('woff-variations');
+    /* font-weight requires a range: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Fonts/Variable_Fonts_Guide#Using_a_variable_font_font-face_changes */
+    font-weight: 300 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'D2coding';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./fonts/D2Coding.woff2');
+}
+
+@font-face {
+    font-family: 'D2coding';
+    font-style: normal;
+    font-weight: 600;
+    src: url('./fonts/D2CodingBold.woff2');
+}
+
+
+@font-face {
+    font-family: times new roman;
+    font-style: normal;
+    font-weight: 400;
+    src: local('Times New Roman'), url('./fonts/times.woff') format('woff')
+}
+
+@font-face {
+    font-family: 'Noto Serif KR';
+    font-style: normal;
+    font-weight: 300;
+    src: url(./fonts/NotoSerifCJKkr-Regular-subset.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'Noto Serif KR';
+    font-style: normal;
+    font-weight: 600;
+    src: url(./fonts/NotoSerifCJKkr-Bold-subset.woff2) format('woff2');
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background: #19191E;
+    overflow: hidden;
+    transition: 0.2s ease-out;
+}
+
+.loweyes-enable {
+    background: #000000;
+}
+
+textarea {
+    width: calc(100% - 135px);
+    height: calc(100% - 2rem);
+    margin: 0;
+    border: 0;
+    background: #19191E;
+    color: #F7F7F9;
+    outline: none;
+    outline-color: none;
+    padding: 1rem;
+    resize: none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    transition: 0.2s ease-out;
+    pointer-events: none;
+}
+
+.small-font {
+    font-size: 60px;
+}
+
+.normal-font {
+    font-size: 74px;
+}
+
+.big-font {
+    font-size: 88px;
+}
+
+.loweyes-enable textarea {
+    background: #000000;
+    color: #ffffff;
+}
+
+textarea::-webkit-scrollbar {
+    opacity: 0.0;
+}
+
+.small-textarea {
+    width: calc(100% - 535px);
+}
+
+.sans-serif {
+    font-family: "Pretendard Variable", sans-serif;
+}
+
+.serif {
+    font-family: "Times New Roman", "Noto Serif KR", serif;
+}
+
+.monospaced {
+    font-family: "Fira Code", 'D2coding', monospace;
+}

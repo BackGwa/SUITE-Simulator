@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="./icon/icon.svg" type="image/svg+xml">
+  <meta property="og:title" content="Notepad">
+  <meta name="viewport" content="user-scalable=no width=device-width, initial-scale=1.0">
+  <meta property="og:description" content="Simple Textfield">
+  <meta property="og:url" content="https://junhg0211.github.io/notepad">
+  <meta property="og:image" content="https://junhg0211.github.io/notepad/icon/icon.svg">
+  <meta property="og:image:type" content="image/svg+xml">
+  <meta name="theme-color" content="#2C2C2C" data-react-helmet="true">
+  <title>Notepad For SUITE</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./suite.css">
+  <link rel="stylesheet" href="./KRVK/style.css">
+  <link rel="stylesheet" href="../../../fonts/style.css">
+
+  <script src="./hangul.js"></script>
+  <script src="./KRVK/keyboard.js"></script>
+</head>
+<body onload="onload()">
+  <audio src="./res/alert.mp3" id="alert_feedback"></audio>
+  <app-layout>
+    <textarea class="sans-serif normal-font" id="textfd" autofocus></textarea>
+
+    <context-menu onclick="expand()">
+      <context-icon></context-icon>
+    </context-menu>
+
+    <menu-area>
+      <option-item onclick="Bold()">
+        <img src="./res/bold_disable.png" alt="굵게" id="bold-img">
+      </option-item>
+      <option-item onclick="Italic()">
+        <img src="./res/italic_disable.png" alt="기울임꼴" id="italic-img">
+      </option-item>
+      <option-item onclick="Underline()">
+        <img src="./res/underline_disable.png" alt="밑줄" id="underline-img">
+      </option-item>
+      <option-item onclick="Align(true)">
+        <img src="./res/align0.png" alt="정렬" id="align-img">
+      </option-item>
+      <option-item onclick="keyboard_open()">
+        <img src="./res/keyboard_disable.png" alt="키보드" id="keyboard-img">
+      </option-item>
+
+      <expand-area id="more_expand">
+        <context-title>더보기</context-title>
+        <context-menubox>
+
+          <expand-option-item>
+            <option-title>서체 스타일</option-title>
+            <font-option>
+              <font-setting-item onclick="font_change(0)" class="selected-font">
+                <item-label>일반</item-label>
+              </font-setting-item>
+              <font-setting-item onclick="font_change(1)">
+                <item-label class="serif">명조</item-label>
+              </font-setting-item>
+              <font-setting-item onclick="font_change(2)">
+                <item-label class="monospaced">고정폭</item-label>
+              </font-setting-item>
+            </font-option>
+
+            <br class="split">
+
+
+            <option-title>서체 크기</option-title>
+            <font-option>
+
+              <size-setting-item onclick="size_change(0)">
+                <item-label>작게</item-label>
+              </size-setting-item>
+
+              <size-setting-item onclick="size_change(1)" class="selected-font">
+                <item-label>보통</item-label>
+              </size-setting-item>
+
+              <size-setting-item onclick="size_change(2)">
+                <item-label>크게</item-label>
+              </size-setting-item>
+
+            </font-option>
+
+          </expand-option-item>
+
+          <br class="split">
+
+          <expand-option-item>
+            <option-title>공유</option-title>
+
+            <toggle-option class="option-top option-bottom"
+            onclick="share();">
+              <toggle-text>QR로 공유하기</toggle-text>
+              <toggle-summary>
+                QR코드를 통하여 텍스트를 공유합니다.
+              </toggle-summary>
+            </toggle-option>
+            <share-box id="share_box"></share-box>
+          </expand-option-item>
+
+          <br class="split">
+
+          <expand-option-item>
+            <option-title>실험적 기능</option-title>
+            <toggle-option class="option-top">
+              <toggle-text>단축어</toggle-text>
+              <toggle-summary id="command_stat">
+                사용 안 함
+              </toggle-summary>
+              <toggle-switch id="command_toggle"
+                             onclick="command_toggle()">
+                <switch-slider></switch-slider>
+              </toggle-switch>
+            </toggle-option>
+
+            <toggle-option class="toggle-hidden"
+                           id="command_more"
+                           onclick="tab_command();">
+              <toggle-text>단축어 설정</toggle-text>
+              <toggle-summary id="shotcut_stat">
+                설정 된 단어가 없습니다
+              </toggle-summary>
+            </toggle-option>
+
+            <toggle-option class="option-bottom">
+              <toggle-text>고대비 모드</toggle-text>
+              <toggle-summary id="loweyes_stat">
+                사용 안 함
+              </toggle-summary>
+              <toggle-switch id="loweyes_toggle"
+                             onclick="loweyes_toggle()">
+                <switch-slider></switch-slider>
+              </toggle-switch>
+            </toggle-option>
+          </expand-option-item>
+
+          <br class="split">
+
+          <expand-option-item>
+            <option-title>기타</option-title>
+
+            <toggle-option class="option-top"
+                          onclick="tab_contributor();">
+              <toggle-text>기여자</toggle-text>
+              <toggle-summary>
+                junhg0211, BackGwa
+              </toggle-summary>
+            </toggle-option>
+
+            <toggle-option onclick="tab_license();">
+              <toggle-text>라이선스</toggle-text>
+              <toggle-summary>
+                MIT LICENSE
+              </toggle-summary>
+            </toggle-option>
+
+            <toggle-option class="option-bottom"
+                           onclick="tab_version();">
+              <toggle-text>버전 정보</toggle-text>
+              <toggle-summary>
+                1.44
+              </toggle-summary>
+            </toggle-option>
+
+            <br class="split">
+
+            <toggle-option class="option-top"
+                           onclick="tab_reset();">
+              <toggle-text>재설정</toggle-text>
+              <toggle-summary>
+                설정이나 모든 노트를 초기 상태로 되돌립니다.
+              </toggle-summary>
+            </toggle-option>
+
+            
+            <toggle-option class="option-bottom"
+                           onclick="app_exit()">
+              <toggle-text>앱 종료</toggle-text>
+              <toggle-summary>
+                앱을 종료합니다.
+              </toggle-summary>
+            </toggle-option>
+
+          </expand-option-item>
+
+        </context-menubox>
+      </expand-area>
+
+      <expand-area class="hidden-expand" id="contributor_expand">
+        <context-title>기여자</context-title>
+
+        <context-menubox>
+          <profile-list>
+            <profile-content>
+              <img src="./res/profile/29883701.png" class="profile">
+              <profile-name>Sch</profile-name>
+              <profile-id>junhg0211</profile-id>
+              <profile-summary>
+                원본 레포지토리 및<br>
+                기능 제공
+              </profile-summary>
+            </profile-content>
+  
+            <profile-content>
+              <img src="./res/profile/64456214.jpg" class="profile">
+              <profile-name>강찬영</profile-name>
+              <profile-id>BackGwa</profile-id>
+              <profile-summary>
+                어플리케이션 포팅<br>
+                작업 및 최적화
+              </profile-summary>
+            </profile-content>
+
+          </profile-list>
+
+            <hr>
+
+            <special-thanks>
+              <st-title>특별히 감사한 분들</st-title><br>
+              <st-content class="monospaced license-text">
+Jaemin Jo (e-)
+- Hangul.js
+
+Hong Dae Myung (daemyung6)
+- ko-customKeyboard
+
+위 레포지토리와 라이브러리를 기반으로 KRVK가 제작되었습니다. 감사합니다.
+              </st-content>
+            </special-thanks>
+        </context-menubox>
+      </expand-area>
+
+      <expand-area class="hidden-expand" id="license_expand">
+        <context-title>라이선스</context-title>
+        <context-menubox class="monospaced license-text">
+<b>SUITE-notepad</b>
+MIT License
+
+Copyright (c) 2023 강찬영
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+<b>KRVK (Korean Virtual Keyboard)</b>
+MIT License
+
+Copyright (c) 2023 강찬영
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+<b>Hangul.js</b>
+MIT License
+
+Copyright (c) 2012-2020 Jaemin Jo
+
+Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+        </context-menubox>
+      </expand-area>
+
+      <expand-area class="hidden-expand" id="version_expand">
+          <version-icon></version-icon>
+          <version-appname>노트패드</version-appname>
+          <version-appversion>버전 : 1.44</version-appversion>
+      </expand-area>
+
+      <expand-area class="hidden-expand" id="command_expand">
+        <context-title>단축어 설정</context-title>
+
+        <context-menubox>
+
+          <toggle-option class="option-top"
+          onclick="test_register_shotcut(0)">
+            <toggle-text>단축어 슬롯 1</toggle-text>
+            <toggle-summary id="slot0">
+              비어있습니다.
+            </toggle-summary>
+          </toggle-option>
+
+          <toggle-option
+          onclick="test_register_shotcut(1)">
+            <toggle-text>단축어 슬롯 2</toggle-text>
+            <toggle-summary id="slot1">
+              비어있습니다.
+            </toggle-summary>
+          </toggle-option>
+
+          <toggle-option
+          onclick="test_register_shotcut(2)">
+            <toggle-text>단축어 슬롯 3</toggle-text>
+            <toggle-summary id="slot2">
+              비어있습니다.
+            </toggle-summary>
+          </toggle-option>
+          
+          <toggle-option class="option-bottom"
+          onclick="test_register_shotcut(3)">
+            <toggle-text>단축어 슬롯 4</toggle-text>
+            <toggle-summary id="slot3">
+              비어있습니다.
+            </toggle-summary>
+          </toggle-option>
+
+          <br class="split">
+
+        </context-menubox>
+      </expand-area>
+
+      <expand-area class="hidden-expand" id="reset_expand">
+        <context-title>재설정</context-title>
+
+        <context-menubox>
+
+          <toggle-option class="option-top"
+          onclick="clear_note()">
+            <toggle-text>노트 지우기</toggle-text>
+            <toggle-summary>
+              노트의 내용을 전부 비웁니다.
+            </toggle-summary>
+          </toggle-option>
+
+          <toggle-option class="option-bottom"
+          onclick="clear_setting()">
+            <toggle-text>설정 지우기</toggle-text>
+            <toggle-summary>
+              설정을 모두 초기 상태로 변경합니다. (앱이 재시작됩니다)
+            </toggle-summary>
+          </toggle-option>
+
+          <br class="split">
+
+          <toggle-option class="option-top option-bottom"
+          onclick="clear_all()">
+            <toggle-text>모두 재설정</toggle-text>
+            <toggle-summary>
+              노트와 설정을 초기 상태로 변경합니다. (앱이 재시작됩니다)
+            </toggle-summary>
+          </toggle-option>
+
+        </context-menubox>
+      </expand-area>
+    </menu-area>
+
+    <div id="keyboardzone" class="keyboard-close-animation close-animation hidden">
+      <audio src="./KRVK/res/Typing.mp3" id="typing_feedback"></audio>
+      <keyboard-move>
+          <keyboard-movebar></keyboard-movebar>
+      </keyboard-move>
+    </div>
+
+    <alert-box class="alert-hidden">
+      <alert-content>
+      </alert-content>
+    </alert-box>
+
+  </app-layout>
+  <script src="./index.js"></script>
+  <script src="./KRVK/krvk.js"></script>
+</body>
+</html>

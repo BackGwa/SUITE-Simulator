@@ -1,0 +1,126 @@
+html,
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+app-area {
+    position: absolute;
+    width: 1280px;
+    height: 480px;
+    background: #000000;
+}
+
+input {
+    position: absolute;
+    width: calc(62% - 24px);
+    height: 100px;
+    border: none;
+    background: black;
+    color: #ffffff;
+    font-size: 82px;
+    font-weight: 700;
+    text-align: right;
+    padding-right: 24px;
+    font-family: 'SUITE Variable';
+}
+
+history-area {
+    position: absolute;
+    width: calc(64% - 24px);
+    height: calc(100% - 100px);
+    left: 0;
+    margin-top: 100px;
+    display: grid;
+    grid-template-rows: 0.5fr 1fr 1fr;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+history-item {
+    position: relative;
+    width: calc(100% - 24px);
+    height: 80px;
+    background: #171717;
+    border: 2px solid #ffffff10;
+    margin: 8px;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+button-area {
+    position: absolute;
+    width: 400px;
+    height: 100%;
+    right: 0;
+    margin-right: 75px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+button-layer {
+    width: 400px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+button {
+    width: calc(100% - 8px);
+    height: calc(100% - 8px);
+    border: none;
+    border-radius: 50%;
+    margin: 4px;
+    font-size: 36px;
+    font-family: 'SUITE Variable';
+    font-weight: 700;
+    color: white;
+    background: #171717;
+}
+
+.function-btn {
+    background: #dedede;
+    color: black;
+}
+
+.calc-btn {
+    background: #fdc242;
+}
+
+histroy-value {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    margin-right: 32px;
+    color: white;
+    font-size: 40px;
+    font-family: 'SUITE Variable';
+    font-weight: 700;
+}
+
+exit-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #171717;
+    width: 50px;
+    height: 100px;
+    right: 0;
+    margin-right: 10px;
+    border: 2px solid #ffffff10;
+    border-radius: 25px;
+}
+
+exit-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-family: 'SUITE Variable';
+    font-size: 36px;
+    font-weight: 700;
+}

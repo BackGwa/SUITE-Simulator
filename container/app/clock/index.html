@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="user-scalable=no width=device-width, initial-scale=1.0">
+  <title>Clock</title>
+
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="../../../fonts/style.css">
+</head>
+
+<body>
+  <audio src="./res/alarm.mp3" id="alarm_sound"></audio>
+  <app-area>
+    <clock-text>
+      00:00:00
+    </clock-text>
+    <clock-input>
+      <select id="hours-input" onchange="sync_input_time()"></select>
+      <select id="minutes-input" onchange="sync_input_time()"></select>
+      <select id="seconds-input" onchange="sync_input_time()"></select>
+    </clock-input>
+    <mini-button-left onclick="left_button()">
+      <label-text id="left-text">초기화</label-text>
+    </mini-button-left>
+
+    <mini-slider>
+      <slider-item onclick="sync_slider(0)" class="slider-active">
+        <slider-label>시계</slider-label>
+      </slider-item>
+      <slider-item onclick="sync_slider(1)">
+        <slider-label>타이머</slider-label>
+      </slider-item>
+      <slider-item  onclick="sync_slider(2)">
+        <slider-label>스톱워치</slider-label>
+      </slider-item>
+    </mini-slider>
+
+    <mini-button-right onclick="right_button()">
+      <label-text id="right-text">시작</label-text>
+    </mini-button-right>
+
+    <mini-button-top onclick="back_site()">
+      <label-text>닫기</label-text>
+    </mini-button-top>
+  </app-area>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
