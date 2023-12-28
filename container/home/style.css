@@ -36,8 +36,6 @@ dock-item {
     margin-left: 12px;
     margin-right: 12px;
     overflow: hidden;
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
 }
 
 .left-item {
@@ -70,10 +68,6 @@ apps {
     transition: 0.22s ease-in-out;
 }
 
-.icon-ai {
-    background-image: url(../app/icon_res/SUITE_AI.png);
-}
-
 .icon-clock {
     background-image: url(../app/icon_res/clock.png);
 }
@@ -90,16 +84,8 @@ apps {
     background-image: url(../app/icon_res/calc.png);
 }
 
-.icon-setting {
-    background-image: url(../app/icon_res/setting.png);
-}
-
 .icon-weather {
     background-image: url(../app/icon_res/weather.png);
-}
-
-.icon-youtube {
-    background-image: url(../app/icon_res/youtube.png);
 }
 
 .icon-schoolbell {
@@ -108,10 +94,6 @@ apps {
 
 .icon-classcard {
     background-image: url(../app/icon_res/classcard.png);
-}
-
-.icon-health {
-    background-image: url(../app/icon_res/health.png);
 }
 
 iframe {
@@ -137,9 +119,7 @@ loading-effect {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: #000000A0;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: #000000CF;
     opacity: 1.0;
     transition: 0.3s ease-in-out;
 }
@@ -168,8 +148,6 @@ loading-animate {
     transform: translate(-50%, -50%);
     background: #d0d0d03d;
     border-radius: 8px;
-    filter: drop-shadow(0 0 24px #000000F0);
-    -webkit-filter: drop-shadow(0 0 24px #000000F0);
     overflow: hidden;
 }
 
