@@ -70,4 +70,4 @@ function standup() {
     }, 18000)
 }
 
-setInterval(standup, (1000 * 60) * 10);
+setInterval(standup, (1000 * 60) * 30);
